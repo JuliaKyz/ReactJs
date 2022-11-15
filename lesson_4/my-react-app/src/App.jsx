@@ -1,14 +1,24 @@
 import React, { useState, useCallback, useEffect } from "react";
 import './App.css';
-import Message from './components/Message';
+// import Message from './components/Message';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
+import Header from './components/Header/Header';
+import { Container } from "@mui/material";
+import ChatList from "./components/ChatList/ChatList.jsx";
+import DialogList from "./components/DialogList/DialogList.jsx";
+import { BrowserRouter } from "react-router-dom";
+
 
 function App() {
-  const [messageList, setMessagesList] = useState([
-    { id: 1, text: "message 1", author: "user1" },
-    { id: 2, text: "message 2", author: "user2" },
-    { id: 3, text: "message 3", author: "user3" },
+  const [messageList, setMessagesList] = useState([]);
+
+  const [chatsList, setChatsList] = useState([
+    { id: 1, name: "Hello" },
+    { id: 2, name: "This" },
+    { id: 3, name: "Re" },
   ]);
+
+
 
   const [inputValue, setInputValue] = useState("");
 
@@ -40,37 +50,33 @@ function App() {
     [setMessagesList, inputValue, messageList]
   );
 
-  useEffect(() => {
-    if (messageList[messageList.length - 1].author !== "robot") {
-      setTimeout(() => {
-        const arr = [
-          ...messageList,
-          {
-            id: messageList.length + 1,
-            text: `Сообщение от ${messageList[messageList.length - 1].author
-              }`,
-            author: "robot",
-          },
-        ];
-        setMessagesList(arr);
-      }, 1500);
-    }
-  }, [messageList]);
-
-
-
-
-
+  // useEffect(() => {
+  //   if (messageList[messageList.length - 1].author !== "robot") {
+  //     setTimeout(() => {
+  //       const arr = [
+  //         ...messageList,
+  //         {
+  //           id: messageList.length + 1,
+  //           text: `Сообщение от ${messageList[messageList.length - 1].author
+  //             }`,
+  //           author: "robot",
+  //         },
+  //       ];
+  //       setMessagesList(arr);
+  //     }, 1500);
+  //   }
+  // }, [messageList]);
 
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Message text="Message first" />
-        {messageList.map(({ text, id, author }) => (
-          <Message text={text} key={id} author={author} />
-        ))}
-      </header>
+      <BrowserRouter>
+
+        <Header />
+        <ChatList />
+        {/* <DialogList /> */}
+        <Container />
+      </BrowserRouter >
 
       <form action="#">
         <p>
@@ -93,6 +99,7 @@ function App() {
         </p>
       </form>
     </div>
+
   );
 }
 
