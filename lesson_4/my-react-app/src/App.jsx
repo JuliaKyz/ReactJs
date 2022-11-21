@@ -7,6 +7,11 @@ import { Container } from "@mui/material";
 import ChatList from "./components/ChatList/ChatList.jsx";
 import DialogList from "./components/DialogList/DialogList.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Profile from "./components/Profile/Profile";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import Home from "./components/Home/Home";
 
 
 function App() {
@@ -50,33 +55,27 @@ function App() {
     [setMessagesList, inputValue, messageList]
   );
 
-  // useEffect(() => {
-  //   if (messageList[messageList.length - 1].author !== "robot") {
-  //     setTimeout(() => {
-  //       const arr = [
-  //         ...messageList,
-  //         {
-  //           id: messageList.length + 1,
-  //           text: `Сообщение от ${messageList[messageList.length - 1].author
-  //             }`,
-  //           author: "robot",
-  //         },
-  //       ];
-  //       setMessagesList(arr);
-  //     }, 1500);
-  //   }
-  // }, [messageList]);
+
 
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
 
-        <Header />
-        <ChatList />
-        {/* <DialogList /> */}
-        <Container />
-      </BrowserRouter >
+          <Header />
+
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <ChatList />
+            {/* <DialogList /> */}
+            <Container />
+
+
+          </Routes>
+        </BrowserRouter >
+      </Provider>
 
       <form action="#">
         <p>
