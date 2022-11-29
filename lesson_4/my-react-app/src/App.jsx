@@ -1,17 +1,18 @@
 import React, { useState, useCallback, useEffect } from "react";
 import './App.css';
 // import Message from './components/Message';
-import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Header from './components/Header/Header';
-import { Container } from "@mui/material";
+// import { Container } from "@mui/material";
 import ChatList from "./components/ChatList/ChatList.jsx";
-import DialogList from "./components/DialogList/DialogList.jsx";
+// import DialogList from "./components/DialogList/DialogList.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Profile from "./components/Profile/Profile";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import Home from "./components/Home/Home";
+
 
 
 function App() {
@@ -64,20 +65,33 @@ function App() {
         <BrowserRouter>
 
           <Header />
+          {/* <Switch> */}
+
 
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
-            <ChatList />
+
+            <Route
+              path="/ChatList"
+              element={
+                <ChatList />
+              }
+            ></Route>
+
+
+
+            {/* <ChatList /> */}
             {/* <DialogList /> */}
-            <Container />
+            {/* <Container /> */}
 
 
           </Routes>
+          {/* </Switch> */}
         </BrowserRouter >
       </Provider>
 
-      <form action="#">
+      {/* <form action="#">
         <p>
           <b>Введите ваше сообщение:</b>
         </p>
@@ -96,7 +110,7 @@ function App() {
         <p>
           <input type="submit" value="Отправить" onClick={handleSubmitButton} />
         </p>
-      </form>
+      </form> */}
     </div>
 
   );
