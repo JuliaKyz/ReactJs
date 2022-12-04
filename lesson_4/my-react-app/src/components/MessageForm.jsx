@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addMessage } from "../store/Messages/action";
 import { useParams } from "react-router-dom";
 import { getChatMessages } from "../components/MsgChat";
-import { getMessages } from "../store/messages/selectors";
+import { getMessages } from "../store/Messages/selectors";
 import { getProfile } from "../store/Profile/selectors";
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 
@@ -86,25 +86,4 @@ export default function SendMessageForm() {
 
 
 
-
-{/* <form action="#">
-        <p>
-          <b>Введите ваше сообщение:</b>
-        </p>
-        <p>
-          <TextareaAutosize
-            value={inputValue}
-            onChange={handleTextChange}
-            maxRows={4}
-            aria-label="maximum height"
-            placeholder="Maximum 4 rows"
-            defaultValue=""
-            style={{ width: 200 }}
-          // autoFocus
-          />
-        </p>
-        <p>
-          <input type="submit" value="Отправить" onClick={handleSubmitButton} />
-        </p>
-      </form> */}
 

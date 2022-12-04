@@ -1,6 +1,5 @@
-import { getChatMessages } from "../../helpers";
 import { REMOVE_CHAT } from "../chats/action";
-import { ADD_MESSAGE } from "./action.js";
+import { ADD_MESSAGE } from "./action.jsx";
 import { getChatMessages } from "../../components/MsgChat";
 
 

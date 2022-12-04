@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { profileReducer } from "../store/profile/reducer";
 import { combineReducers } from "redux";
 import { profileReducer } from "../store/Profile/reducer";
 import { chatsReducer } from "../store/Chats/reducer";

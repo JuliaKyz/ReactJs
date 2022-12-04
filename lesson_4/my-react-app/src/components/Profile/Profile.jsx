@@ -1,13 +1,7 @@
-import { useCallback } from "react";
-// import { store } from "../../store/index";
-// import { toggleShowName } from "../../store/profile/actions";
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "../../store/Profile/selectors";
-import { changeName } from "../store/profile/action";
-
-
-
+import { getProfile } from "../store/Profile/selectors";
+import { changeName } from "../store/Profile/action";
 
 
 export default function Profile() {
